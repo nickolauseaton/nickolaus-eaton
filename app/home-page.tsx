@@ -4,6 +4,9 @@ interface Post {
   id: number
   title: string
   content: string | null
+  author: { 
+    name: string | null //adding author name here
+  }
 }
 
 interface Props {
@@ -21,6 +24,7 @@ export default function HomePage({ posts }: Props) {
           <li className="border border-gray-500 rounded-md shadow-md p-4 bg-white w-96" key={post.id}>
             <h2 className="font-semibold">{post.title}</h2>
             <p>{post.content}</p>
+            <p><strong>Author:</strong> {post.author?.name || 'Unknown'}</p>
           </li>
         ))}
       </ul>
